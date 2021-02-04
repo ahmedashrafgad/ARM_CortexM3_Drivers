@@ -22,7 +22,7 @@
  // set port direction
  void MGPIO_voidSetPortDirction(u8 Copy_u8PortID,u8 Copy_u8Mode);
  // set port value
- void MGPIO_voidSetPortValue(u8 Copy_u8PortID,u8 Value);
+ u32 MGPIO_voidSetPortValue(u8 Copy_u8PortID);
 
 
 #define GPIO_u8_PORTA   0
