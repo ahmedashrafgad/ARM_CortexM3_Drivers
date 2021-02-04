@@ -167,43 +167,40 @@ void MGPIO_voidSetPinDirction(u8 Copy_u8PortID,u8 Copy_u8PinID,u8 Copy_u8Mode)
  	}
  }
 
- void MGPIO_voidSetPortDirction(u8 Copy_u8PortID,u8 Copy_u8Mode)
- {
-	 switch(Copy_u8PortID)
-		{
-		case GPIO_PORTA :
-		GPIOA_CRL &= ~( 0xffff     );
-	    GPIOA_CRL |=  ( Copy_u8Mode ) ;
-		GPIOA_CRH &= ~( 0xffff     );
-	    GPIOA_CRH |=  ( Copy_u8Mode ) ;
-			break;
-		case GPIO_PORTB :
-		GPIOB_CRL &= ~( 0xffff      );
-	    GPIOB_CRL |=  ( Copy_u8Mode ) ;
-		GPIOB_CRH &= ~( 0xffff      );
-	    GPIOB_CRH |=  ( Copy_u8Mode ) ;
-			break;
-		case GPIO_PORTC :
-		GPIOC_CRL &= ~( 0xffff      );
-	    GPIOC_CRL |=  ( Copy_u8Mode ) ;
-		GPIOC_CRH &= ~( 0xffff      );
-	    GPIOC_CRH |=  ( Copy_u8Mode ) ;
-			break;
-		}
+ void GPIO_voidSetPortDirection(u8 Copy_u8Port, u32 Copy_u32PortMode) {
+ 	switch (Copy_u8Port) {
+ 	case GPIOA:
+ 		GPIOA_CRL = Copy_u32PortMode;
+ 		GPIOA_CRH = Copy_u32PortMode;
+ 		break;
+ 	case GPIOB:
+ 		GPIOB_CRL = Copy_u32PortMode;
+ 		GPIOB_CRH = Copy_u32PortMode;
+ 		break;
+ 	case GPIOC:
+ 		GPIOC_CRL = Copy_u32PortMode;
+ 		GPIOC_CRH = Copy_u32PortMode;
+ 		break;
+ 	default:
+ 		break;
+ 	}
+
  }
- void MGPIO_voidSetPortValue(u8 Copy_u8PortID,u16 Value)
+ u32 MGPIO_voidSetPortValue(u8 Copy_u8PortID)
  {
+	u32 Local_u32Value = 0;
 	 switch(Copy_u8PortID)
 	  	{
 	  		case GPIO_PORTA :
-	  		GPIOA_IDR = Value;
+	  		GPIOA_IDR = Local_u32Value;
 	  		break;
 	  		case GPIO_PORTB :
-	  		GPIOB_IDR = Value;
+	  		GPIOB_IDR = Local_u32Value;
 	  		break;
 	  		case GPIO_PORTC :
-	  		GPIOC_IDR = Value;
+	  		GPIOC_IDR = Local_u32Value;
 	  		break;
 	  	}
+	 return Local_u32Value;
 }
 
