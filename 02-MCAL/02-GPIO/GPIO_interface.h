@@ -53,32 +53,37 @@
 #define GPIO_PIN14    14
 #define GPIO_PIN15    15
 
- /********** Input Options ************/
-#define GPIO_INPUT_ANALOG   	 0b0000
-#define GPIO_INPUT_FLOATING		 0b0100
-#define GPIO_INPUT_PULL_UP_DOWN  0b1000
+ /*Note Input Options : Analog
+ 					   Floating
+ 					   PullUp
+ 					   PullDown
+ 					   Pull up and pull down has the same mode in bits*/
+
+ #define INPUT_ANLOG               0b0000
+ #define INPUT_FLOATING            0b0100
+ #define INPUT_PULLUP_PULLDOWN     0b1000
 
  /*Note Output Options : PP = Push Pull
                          OD = Open Drain
  				        AF = Alternative Function */
 
- /******* OutPut Modes for 10 MHZ *******/
- #define GPIO_OUTPUT_10MHZ_PP      0b0001
- #define GPIO_OUTPUT_10MHZ_OD      0b0101
- #define GPIO_OUTPUT_10MHZ_AF_PP   0b1001
- #define GPIO_OUTPUT_10MHZ_AF_OD   0b1101
+ /*OutPut Modes for 10 MHZ */
+ #define OUTPUT_10MHZ_PP      0b0001
+ #define OUTPUT_10MHZ_OD      0b0101
+ #define OUTPUT_10MHZ_AF_PP   0b1001
+ #define OUTPUT_10MHZ_AF_OD   0b1101
 
- /******* Output Modes for 2 MHZ *******/
- #define GPIO_OUTPUT_2MHZ_PP       0b0010
- #define GPIO_OUTPUT_2MHZ_OD       0b0110
- #define GPIO_OUTPUT_2MHZ_AF_PP    0b1010
- #define GPIO_OUTPUT_2MHZ_AF_OD    0b1110
+ /*Output Modes for 2 MHZ */
+ #define OUTPUT_2MHZ_PP       0b0010
+ #define OUTPUT_2MHZ_OD       0b0110
+ #define OUTPUT_2MHZ_AF_PP    0b1010
+ #define OUTPUT_2MHZ_AF_OD    0b1110
 
- /******* Output Modes for 50 MHZ *******/
- #define GPIO_OUTPUT_50MHZ_PP      0b0011
- #define GPIO_OUTPUT_50MHZ_OD      0b0111
- #define GPIO_OUTPUT_50MHZ_AF_PP   0b1011
- #define GPIO_OUTPUT_50MHZ_AF_OD   0b1111
+ /*Output Modes for 50 MHZ */
+ #define OUTPUT_50MHZ_PP      0b0011
+ #define OUTPUT_50MHZ_OD      0b0111
+ #define OUTPUT_50MHZ_AF_PP   0b1011
+ #define OUTPUT_50MHZ_AF_OD   0b1111
 
 
  /*----------------------------------------- PORT MODES -----------------------------------------*/
