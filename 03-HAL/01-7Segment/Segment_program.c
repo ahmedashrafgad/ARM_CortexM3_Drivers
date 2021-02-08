@@ -6,11 +6,10 @@
  */
 
 
-#include "StdTypes.h"
+#include "STD_TYPES.h"
 #include "BIT_MATH.h"
 
 #include "Segment_interface.h"
-
 #include "Segment_config.h"
 #include "Segment_private.h"
 
@@ -25,13 +24,13 @@ void HSegment_voidDisplayNum(u8 Copy_u8UsedSegments,u8 Copy_u8Number)
 	if(Copy_u8UsedSegments == 1 )
 	{
 		MGPIO_voidSetPortValue( GPIO_PORTA , SegmentUnit[Copy_u8Number] );
-		  MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,HIGH);
-		  MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,HIGH);
-	      MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-	      MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,HIGH);
-	      MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,HIGH);
-		  MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,HIGH);
-		  MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15,LOW);
+		  MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,HIGH);
+		  MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,HIGH);
+	      MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+	      MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,HIGH);
+	      MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,HIGH);
+		  MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,HIGH);
+		  MGPIO_voidSetPinValue(GPIO_PORTA,PIN15,LOW);
 
 	}
 	else if (Copy_u8UsedSegments == 2 )
@@ -40,13 +39,13 @@ void HSegment_voidDisplayNum(u8 Copy_u8UsedSegments,u8 Copy_u8Number)
 		{
 			MGPIO_voidSetPortValue( GPIO_PORTA , SegmentUnit[Copy_u8Number] );
 			//zero 1111110
-			MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,HIGH);
-		    MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,HIGH);
-			MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-			MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,HIGH);
-			MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,HIGH);
-		    MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,HIGH);
-			MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15,LOW);
+			MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,HIGH);
+		    MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,HIGH);
+			MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+			MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,HIGH);
+			MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,HIGH);
+		    MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,HIGH);
+			MGPIO_voidSetPinValue(GPIO_PORTA,PIN15,LOW);
 		}
 		else if (Copy_u8Number < 100)
 		{
@@ -57,98 +56,98 @@ void HSegment_voidDisplayNum(u8 Copy_u8UsedSegments,u8 Copy_u8Number)
 			switch(Local_u8Tenth)
 			{
 			//one    0110000
-			case 1 : MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15,LOW);
+			case 1 : MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN15,LOW);
 					 break;
 
 			//two    1101101
-			case 2 : MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15,HIGH);
+			case 2 : MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN15,HIGH);
 					 break;
 
 			//three 1111001
-			case 3 : MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15, HIGH);
+			case 3 : MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN15, HIGH);
 
 					 break;
 
 			//four	 0110011
-			case 4 : MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15, HIGH);
+			case 4 : MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN15, HIGH);
 
 					 break;
 
 			//five	 1011011
-			case 5 : MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15, HIGH);
+			case 5 : MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN15, HIGH);
 
 					 break;
 
 			//six    0011111
-			case 6 : MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,LOW);
-				     MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,LOW);
-				     MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-				     MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,HIGH);
-				     MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,HIGH);
-				     MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15, HIGH);
+			case 6 : MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,LOW);
+				     MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,LOW);
+				     MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+				     MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,HIGH);
+				     MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,HIGH);
+				     MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN15, HIGH);
 
 				     break;
 
 			//seven  1110000
-			case 7 : MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,HIGH);
-				   	 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,HIGH);
-				   	 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-				   	 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,LOW);
-				   	 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,LOW);
-				   	 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,LOW);
-				   	 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15,LOW);
+			case 7 : MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,HIGH);
+				   	 MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,HIGH);
+				   	 MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+				   	 MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,LOW);
+				   	 MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,LOW);
+				   	 MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,LOW);
+				   	 MGPIO_voidSetPinValue(GPIO_PORTA,PIN15,LOW);
 				   	break;
 
 			//eight  1111111
-			case 8 : MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15, HIGH);
+			case 8 : MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN15, HIGH);
 
 					 break;
 
 			//ten	 1110011
-			case 9 : MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN7 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN8 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN9 ,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN10,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN11,LOW);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN12,HIGH);
-					 MGPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN15, HIGH);
+			case 9 : MGPIO_voidSetPinValue(GPIO_PORTA,PIN7 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN8 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN9 ,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN10,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN11,LOW);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN12,HIGH);
+					 MGPIO_voidSetPinValue(GPIO_PORTA,PIN15, HIGH);
 					 break;
 			}
 		}		

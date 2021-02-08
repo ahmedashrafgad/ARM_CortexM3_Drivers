@@ -6,7 +6,7 @@
  */
 
 
-#include "StdTypes.h"
+#include "STD_TYPES.h"
 #include "BIT_MATH.h"
 
 #include "RCC_interface.h"
@@ -140,9 +140,9 @@ void MRCC_voidEnablePeripheralClock(u8 Copy_u8BusID,u8 Copy_u8PeripheralID)
 	{
 		switch (Copy_u8BusID)
 		{
-		case RCC_AHB :	SIT_BIT(RCC_AHBENR,Copy_u8PeripheralID); break;
-		case RCC_APB1:	SIT_BIT(RCC_APB1ENR,Copy_u8PeripheralID);break;
-		case RCC_APB2:	SIT_BIT(RCC_APB2ENR,Copy_u8PeripheralID);break;
+		case RCC_AHB :	SET_BIT(RCC_AHBENR,Copy_u8PeripheralID); break;
+		case RCC_APB1:	SET_BIT(RCC_APB1ENR,Copy_u8PeripheralID);break;
+		case RCC_APB2:	SET_BIT(RCC_APB2ENR,Copy_u8PeripheralID);break;
 		}
 	}
 	else{
