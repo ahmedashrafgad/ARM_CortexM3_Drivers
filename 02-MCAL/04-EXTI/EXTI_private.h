@@ -21,8 +21,6 @@ typedef struct
 
 #define 	EXTI 		((EXTI_Type *)0x40010400)
 
-#define 	EXTI_FALLING_EDGE			1
-#define 	EXTI_RAISING_EDGE			3
-#define 	EXTI_INTONCHANGE			5
+
 
 #endif /* EXTI_PRIVATE_H_ */

@@ -44,5 +44,17 @@
 #define   NVIC_GROUP_2_SUB_8       (0x05FA0600)
 #define   NVIC_GROUP_0_SUB_16      (0x05FA0700)
 
+/* This base address of system control block to make the priority of Core Peripherals */
+#define   SCB_BASE_ADD        (0xE000ED00)
+#define   SCB_SHPR            ((volatile u8 *)(SCB_BASE_ADD+0x18))
+
+/*
+ SCB_SHPR[0];      memory management fault -4
+ SCB_SHPR[1];      bus fault - 5
+ SCB_SHPR[2];      usage fault -6
+ SCB_SHPR[7];      SVCall    -11
+ SCB_SHPR[10];     PendSV    - 14
+ SCB_SHPR[11];     PendSV    - 15
+*/
 
 #endif /* NVIC_PRIVATE_H_ */

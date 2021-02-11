@@ -74,34 +74,34 @@ void MEXTI_voidInit(void)
 			EXTI -> PR 	= 0xFFFFFFFF;
 }
 
-void MEXTI_voidEnableLine(u8 Copy_u8EXTINum)
+void MEXTI_voidEnableLine(EXTILINE_type Copy_enumEXTI_Line)
 {
-	SET_BIT(EXTI -> IMR , Copy_u8EXTINum);
+	SET_BIT(EXTI -> IMR , Copy_enumEXTI_Line);
 }
-void MEXTI_voidSetSignalLatch(u8 Copy_u8EXTINum, u8 Copy_u8EdgeMode)
+void MEXTI_voidSetSignalLatch(EXTILINE_type Copy_enumEXTI_Line, EXTIEGDE_type Copy_enumEdgeMode)
 {
-	if(Copy_u8EXTINum < 16)
+	if(Copy_enumEXTI_Line < 16)
 	{
-		CLR_BIT(EXTI -> FTSR , Copy_u8EXTINum );
-		CLR_BIT(EXTI -> RTSR , Copy_u8EXTINum );
-		switch(Copy_u8EdgeMode)
+		CLR_BIT(EXTI -> FTSR , Copy_enumEXTI_Line );
+		CLR_BIT(EXTI -> RTSR , Copy_enumEXTI_Line );
+		switch(Copy_enumEdgeMode)
 		{
-			case EXTI_RAISING_EDGE 	: 	SET_BIT(EXTI -> RTSR , Copy_u8EXTINum ); 	break;
-			case EXTI_FALLING_EDGE	:	SET_BIT(EXTI -> FTSR , Copy_u8EXTINum ); 	break;
-			case EXTI_INTONCHANGE 	: 	SET_BIT(EXTI -> RTSR , Copy_u8EXTINum );
-										SET_BIT(EXTI -> FTSR , Copy_u8EXTINum );	break;
+			case EXTI_RAISING_EDGE 	: 	SET_BIT(EXTI -> RTSR , Copy_enumEXTI_Line ); 	break;
+			case EXTI_FALLING_EDGE	:	SET_BIT(EXTI -> FTSR , Copy_enumEXTI_Line ); 	break;
+			case EXTI_INTONCHANGE 	: 	SET_BIT(EXTI -> RTSR , Copy_enumEXTI_Line );
+										SET_BIT(EXTI -> FTSR , Copy_enumEXTI_Line );	break;
 		}
 	}
 }
-void MEXTI_voidDisableLine(u8 Copy_u8EXTINum )
+void MEXTI_voidDisableLine(EXTILINE_type Copy_enumEXTI_Line )
 {
-	CLR_BIT(EXTI -> IMR , Copy_u8EXTINum);
+	CLR_BIT(EXTI -> IMR , Copy_enumEXTI_Line);
 }
 
-void MEXTI_voidSetSoftwareTrigger(u8 Copy_u8EXTINum )
+void MEXTI_voidSetSoftwareTrigger(EXTILINE_type Copy_enumEXTI_Line )
 {
 	/*		   Task			*/
-	SET_BIT(EXTI -> SWIER , Copy_u8EXTINum);
+	SET_BIT(EXTI -> SWIER , Copy_enumEXTI_Line);
 
 }
 /*********============ Setting CallBack for External interrupts ============*********/
@@ -170,5 +170,24 @@ void EXTI3_IRQHandler(void)
 	EXTI3_pfCallBack(); //ahmed();
 	/*	Clear pending Bit		*/
 		SET_BIT(EXTI -> PR , 3);
+}
+
+void EXTI9_5IRQHandler(void)
+{
+	if (GET_BIT(EXTI -> PR ,5)==1)
+	{
+		//code  callback
+		SET_BIT(EXTI-> PR , 5); // clear flag after excuting
+	}
+	/*
+	 *
+	 *
+	 */
+	if (GET_BIT(EXTI -> PR ,9)==1)
+		{
+			//code  callback
+			SET_BIT(EXTI-> PR , 9); // clear flag after excuting
+		}
+
 }
 

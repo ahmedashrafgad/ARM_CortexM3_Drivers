@@ -133,14 +133,14 @@ SET_BIT(RCC_CFGR,1);
 
 
 }
-void MRCC_voidEnablePeripheralClock(u8 Copy_u8BusID,u8 Copy_u8PeripheralID)
+void MRCC_voidEnablePeripheralClock(BUSID_type Copy_enumBusID,u8 Copy_u8PeripheralID)
 {
 	/* Range Check */
 	if (Copy_u8PeripheralID < 32)
 	{
-		switch (Copy_u8BusID)
+		switch (Copy_enumBusID)
 		{
-		case RCC_AHB :	SET_BIT(RCC_AHBENR,Copy_u8PeripheralID); break;
+		case RCC_AHB :	SET_BIT(RCC_AHBENR ,Copy_u8PeripheralID); break;
 		case RCC_APB1:	SET_BIT(RCC_APB1ENR,Copy_u8PeripheralID);break;
 		case RCC_APB2:	SET_BIT(RCC_APB2ENR,Copy_u8PeripheralID);break;
 		}
@@ -150,13 +150,13 @@ void MRCC_voidEnablePeripheralClock(u8 Copy_u8BusID,u8 Copy_u8PeripheralID)
 			/*Return Error*/
 		}
 }
-void MRCC_voidDisablePeripheralClock(u8 Copy_u8BusID,u8 Copy_u8PeripheralID)
+void MRCC_voidDisablePeripheralClock(BUSID_type Copy_enumBusID,u8 Copy_u8PeripheralID)
 {
 	if (Copy_u8PeripheralID < 32)
 	{
-		switch (Copy_u8BusID)
+		switch (Copy_enumBusID)
 		{
-		case RCC_AHB :	CLR_BIT(RCC_AHBENR,Copy_u8PeripheralID); break;
+		case RCC_AHB :	CLR_BIT(RCC_AHBENR ,Copy_u8PeripheralID); break;
 		case RCC_APB1:	CLR_BIT(RCC_APB1ENR,Copy_u8PeripheralID);break;
 		case RCC_APB2:	CLR_BIT(RCC_APB2ENR,Copy_u8PeripheralID);break;
 		}

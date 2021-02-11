@@ -20,4 +20,8 @@ typedef signed   long  long   	   s64; //8 bytes
 
 #define NULLPTR ((void*)0)
 
+#ifndef NULL
+#define NULL  (void *)0
+#endif
+
 #endif /* STD_TYPES_H_ */
